@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";  
+
+option java_multiple_files = true;
+option java_package = "generated.smarthome.plantsensor";
+option java_outer_classname = "PlantSensorServiceImpl";
+
+package SmartHomePlantSensor;
+
+service PlantSensorService {
+    // Retrieves the current moisture level of the plant
+    rpc GetMoistureLevel (google.protobuf.Empty) returns (MoistureResponse);
+
+    // Retrieves the current temperature level around the plant
+    rpc GetTemperature (google.protobuf.Empty) returns (TemperatureResponse);
+
+    // Waters the plant if necessary
+    rpc WaterPlant (google.protobuf.Empty) returns (WateringResponse);
+
+    // Sends a message to the system
+    rpc SendMessage (google.protobuf.Empty) returns (MessageResponse);
+}
+
+// Response message for moisture level
+message MoistureResponse {
+    int32 moistureLevel = 1;
+    string message = 2;
+}
+
+// Response message for temperature level
+message TemperatureResponse {
+    float temperature = 1;
+    string message = 2;
+}
+
+// ✅ Define missing `WateringResponse`
+message WateringResponse {
+    bool success = 1;
+    string message = 2;
+}
+
+// ✅ Define missing `MessageResponse`
+message MessageResponse {
+    bool success = 1;
+    string message = 2;
+}
+

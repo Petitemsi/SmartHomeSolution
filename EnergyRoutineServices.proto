@@ -1,0 +1,32 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "generated.smarthome.energy";
+option java_outer_classname = "SmartHomeEnergyImpl";
+
+package SmartHomeEnergy;
+
+service EnergyRoutineService {
+    rpc OptimizeEnergyUsage (EmptyRequest) returns (EnergyUsageResponse);
+    rpc EnablePowerSavingMode (PowerModeRequest) returns (ResponseMessage);
+    rpc IntegrateWithGoogleHome (GoogleHomeRequest) returns (ResponseMessage);
+}
+
+message EmptyRequest {}
+
+message EnergyUsageResponse {
+    int32 powerUsage = 1;
+    string status = 2;
+}
+
+message PowerModeRequest {
+    bool enable = 1;
+}
+
+message GoogleHomeRequest {
+    string command = 1;
+}
+
+message ResponseMessage {
+    bool success = 1;
+    string message = 2;
+}
