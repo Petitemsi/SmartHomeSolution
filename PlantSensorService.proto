@@ -1,48 +1,24 @@
 syntax = "proto3";
 
-import "google/protobuf/empty.proto";  
+package smarthome.environment;
 
+option java_package = "com.smarthome.environment";
+option java_outer_classname = "PlantSensorServiceProto";
 option java_multiple_files = true;
-option java_package = "generated.smarthome.plantsensor";
-option java_outer_classname = "PlantSensorServiceImpl";
 
-package SmartHomePlantSensor;
+message PlantSensorReading {
+  double moisture = 1; // soil moisture level (e.g., percentage)
+  double light = 2;    // light exposure level (e.g., lumens)
+}
+
+message PlantSensorSummary {
+  int32 total_readings = 1;      // number of readings received
+  double average_moisture = 2;   // average moisture level
+  double average_light = 3;      // average light level
+}
 
 service PlantSensorService {
-    // Retrieves the current moisture level of the plant
-    rpc GetMoistureLevel (google.protobuf.Empty) returns (MoistureResponse);
-
-    // Retrieves the current temperature level around the plant
-    rpc GetTemperature (google.protobuf.Empty) returns (TemperatureResponse);
-
-    // Waters the plant if necessary
-    rpc WaterPlant (google.protobuf.Empty) returns (WateringResponse);
-
-    // Sends a message to the system
-    rpc SendMessage (google.protobuf.Empty) returns (MessageResponse);
-}
-
-// Response message for moisture level
-message MoistureResponse {
-    int32 moistureLevel = 1;
-    string message = 2;
-}
-
-// Response message for temperature level
-message TemperatureResponse {
-    float temperature = 1;
-    string message = 2;
-}
-
-// ✅ Define missing `WateringResponse`
-message WateringResponse {
-    bool success = 1;
-    string message = 2;
-}
-
-// ✅ Define missing `MessageResponse`
-message MessageResponse {
-    bool success = 1;
-    string message = 2;
+  // Client streaming RPC to send multiple plant sensor readings
+  rpc SendSensorReadings (stream PlantSensorReading) returns (PlantSensorSummary);
 }
 

@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package smarthome.environment;
+
+option java_package = "com.smarthome.environment";
+option java_outer_classname = "EnergyRoutineServiceProto";
+option java_multiple_files = true;
+
+message EnergyUsageRequest {
+  string date = 1; // date for usage data (YYYY-MM-DD)
+}
+
+message EnergyUsageData {
+  int32 hour = 1;       // hour of the day (0-23)
+  double usage_kwh = 2; // energy usage during that hour in kWh
+}
+
+service EnergyRoutineService {
+  // Server streaming RPC to stream hourly energy usage data
+  rpc StreamHourlyEnergyUsage (EnergyUsageRequest) returns (stream EnergyUsageData);
+}
+

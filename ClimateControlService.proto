@@ -1,29 +1,22 @@
 syntax = "proto3";
+
+package smarthome.environment;
+
+option java_package = "com.smarthome.environment";
+option java_outer_classname = "ClimateControlServiceProto";
 option java_multiple_files = true;
-option java_package = "generated.smarthome.climate";
-option java_outer_classname = "SmartHomeClimateImpl";
-
-package SmartHomeClimate;
-
-service ClimateControlService {
-    rpc SetTemperature (TemperatureRequest) returns (ResponseMessage);
-    rpc GetAirQuality (EmptyRequest) returns (AirQualityResponse);
-    rpc AdjustHumidity (HumidityRequest) returns (ResponseMessage);
-}
 
 message TemperatureRequest {
-    int32 temperature = 1;
+  string room = 1;        // room name or identifier
+  double temperature = 2; // desired temperature in Celsiuss
 }
 
-message AirQualityResponse {
-    string qualityLevel = 1;
+message TemperatureResponse {
+  bool success = 1;       // true if temperature was set successfully
+  string message = 2;     // optional status or error message
 }
 
-message HumidityRequest {
-    int32 humidityLevel = 1;
-}
-
-message ResponseMessage {
-    bool success = 1;
-    string message = 2;
+service ClimateControlService {
+  // Unary RPC to set the temperature of a room
+  rpc SetTemperature (TemperatureRequest) returns (TemperatureResponse);
 }
