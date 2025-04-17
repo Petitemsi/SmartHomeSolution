@@ -1,61 +1,90 @@
 package com.mycompany.smarthome;
+
 import com.smarthome.environment.*;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
 
+import javax.jmdns.JmDNS;
+import javax.jmdns.ServiceInfo;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.net.InetAddress;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 public class PlantSensorServer {
+
+    private static final Logger logger = Logger.getLogger(PlantSensorServer.class.getName());
+
     public static void main(String[] args) throws IOException, InterruptedException {
-        Server server = ServerBuilder.forPort(50053)
+        int port = 50053;
+
+        //  Setup file-based logging
+        FileHandler fileHandler = new FileHandler("plant-sensor-server-log.txt", true);
+        fileHandler.setFormatter(new SimpleFormatter());
+        logger.addHandler(fileHandler);
+
+        // Start gRPC server
+        Server server = ServerBuilder.forPort(port)
+                .intercept(new ApiKeyInterceptor())
                 .addService(new PlantSensorServiceImpl())
                 .build();
 
-        System.out.println("🌿 PlantSensorServer running on port 50053");
+        // Register with JmDNS
+        JmDNS jmdns = JmDNS.create(InetAddress.getLocalHost());
+        ServiceInfo serviceInfo = ServiceInfo.create(
+                "_plant._tcp.local.",
+                "PlantSensorService",
+                port,
+                "path=/plant"
+        );
+        jmdns.registerService(serviceInfo);
+
+        logger.info("🌱 PlantSensorServer starting on port " + port + "...");
         server.start();
+        logger.info("✅ PlantSensorServer registered via JmDNS.");
         server.awaitTermination();
+
+        jmdns.unregisterAllServices();
     }
 
     static class PlantSensorServiceImpl extends PlantSensorServiceGrpc.PlantSensorServiceImplBase {
+
         @Override
         public StreamObserver<PlantSensorReading> sendSensorReadings(StreamObserver<PlantSensorSummary> responseObserver) {
             return new StreamObserver<PlantSensorReading>() {
-                List<PlantSensorReading> readings = new ArrayList<>();
+
+                int count = 0;
+                double totalMoisture = 0;
+                double totalLight = 0;
 
                 @Override
-                public void onNext(PlantSensorReading value) {
-                    System.out.printf("📥 Received Reading: Moisture=%.2f%%, Light=%.2f lumens%n",
-                            value.getMoisture(), value.getLight());
-                    readings.add(value);
+                public void onNext(PlantSensorReading reading) {
+                    logger.info("📥 Reading received: Moisture=" + reading.getMoisture() +
+                            "%, Light=" + reading.getLight() + " lumens");
+                    count++;
+                    totalMoisture += reading.getMoisture();
+                    totalLight += reading.getLight();
                 }
 
                 @Override
                 public void onError(Throwable t) {
-                    System.err.println("❌ Error receiving sensor readings");
+                    logger.severe("❌ Error receiving readings: " + t.getMessage());
                 }
 
                 @Override
                 public void onCompleted() {
-                    double totalMoisture = 0;
-                    double totalLight = 0;
-
-                    for (PlantSensorReading r : readings) {
-                        totalMoisture += r.getMoisture();
-                        totalLight += r.getLight();
-                    }
-
-                    int count = readings.size();
+                    double avgMoisture = count == 0 ? 0 : totalMoisture / count;
+                    double avgLight = count == 0 ? 0 : totalLight / count;
 
                     PlantSensorSummary summary = PlantSensorSummary.newBuilder()
                             .setTotalReadings(count)
-                            .setAverageMoisture(count == 0 ? 0 : totalMoisture / count)
-                            .setAverageLight(count == 0 ? 0 : totalLight / count)
+                            .setAverageMoisture(avgMoisture)
+                            .setAverageLight(avgLight)
                             .build();
 
-                    System.out.println("✅ Sending summary to client...");
+                    logger.info("📤 Sending summary: " + summary.toString());
                     responseObserver.onNext(summary);
                     responseObserver.onCompleted();
                 }

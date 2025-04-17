@@ -1,8 +1,11 @@
 package com.mycompany.smarthome;
+
 import com.smarthome.environment.*;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.stub.StreamObserver;
+import io.grpc.Metadata;
+import io.grpc.stub.MetadataUtils;
 
 import java.time.LocalTime;
 import java.util.concurrent.CountDownLatch;
@@ -10,17 +13,25 @@ import java.util.concurrent.TimeUnit;
 
 public class SecurityClient {
     public static void main(String[] args) throws InterruptedException {
+        // 1. Create the gRPC channel
         ManagedChannel channel = ManagedChannelBuilder
                 .forAddress("localhost", 50054)
                 .usePlaintext()
                 .build();
 
-        SecurityServiceGrpc.SecurityServiceStub stub = SecurityServiceGrpc.newStub(channel);
+        // 2. Add the API key to metadata
+        Metadata headers = new Metadata();
+        Metadata.Key<String> API_KEY_HEADER = Metadata.Key.of("api_key", Metadata.ASCII_STRING_MARSHALLER);
+        headers.put(API_KEY_HEADER, "my-secret-key"); // must match ApiKeyInterceptor on server
+
+        // 3. Attach metadata to the stub
+        SecurityServiceGrpc.SecurityServiceStub stubWithApiKey =
+                MetadataUtils.attachHeaders(SecurityServiceGrpc.newStub(channel), headers);
 
         CountDownLatch latch = new CountDownLatch(1);
 
         StreamObserver<DoorEvent> requestObserver =
-                stub.monitorDoor(new StreamObserver<DoorAlert>() {
+                stubWithApiKey.monitorDoor(new StreamObserver<DoorAlert>() {
                     @Override
                     public void onNext(DoorAlert alert) {
                         System.out.printf("📢 ALERT from Server [%s]: %s\n",
@@ -35,16 +46,16 @@ public class SecurityClient {
 
                     @Override
                     public void onCompleted() {
-                        System.out.println("✅ Server completed sending alerts.");
+                        System.out.println("✅ Server finished sending alerts.");
                         latch.countDown();
                     }
                 });
 
-        // Simulate sending door events
+        // 4. Simulate sending door events
         for (int i = 1; i <= 3; i++) {
             DoorEvent event = DoorEvent.newBuilder()
                     .setDoorId("FrontDoor")
-                    .setIsOpen(i % 2 == 1)  // alternate between open/close
+                    .setIsOpen(i % 2 == 1)  // alternate OPEN/CLOSED
                     .setTimestamp(LocalTime.now().toString())
                     .build();
 

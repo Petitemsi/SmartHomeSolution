@@ -1,7 +1,10 @@
 package com.mycompany.smarthome;
+
 import com.smarthome.environment.*;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import io.grpc.Metadata;
+import io.grpc.stub.MetadataUtils;
 import io.grpc.stub.StreamObserver;
 
 import java.util.concurrent.CountDownLatch;
@@ -9,58 +12,63 @@ import java.util.concurrent.TimeUnit;
 
 public class PlantSensorClient {
     public static void main(String[] args) throws InterruptedException {
+        // 1. Create gRPC channel
         ManagedChannel channel = ManagedChannelBuilder
-                .forAddress("localhost", 50053)
+                .forAddress("localhost", 50051)
                 .usePlaintext()
                 .build();
 
-        PlantSensorServiceGrpc.PlantSensorServiceStub asyncStub =
-                PlantSensorServiceGrpc.newStub(channel);
+        // 2. Prepare metadata for API key
+        Metadata headers = new Metadata();
+        Metadata.Key<String> API_KEY_HEADER = Metadata.Key.of("api_key", Metadata.ASCII_STRING_MARSHALLER);
+        headers.put(API_KEY_HEADER, "my-secret-key");
 
-        CountDownLatch finishLatch = new CountDownLatch(1);
+        // 3. Attach metadata to stub
+        PlantSensorServiceGrpc.PlantSensorServiceStub stub =
+                MetadataUtils.attachHeaders(PlantSensorServiceGrpc.newStub(channel), headers);
 
-        StreamObserver<PlantSensorReading> requestObserver =
-                asyncStub.sendSensorReadings(new StreamObserver<PlantSensorSummary>() {
+        // 4. Setup countdown latch for async response
+        CountDownLatch latch = new CountDownLatch(1);
+
+        StreamObserver<PlantSensorReading> requestObserver = stub.sendSensorReadings(
+                new StreamObserver<PlantSensorSummary>() {
                     @Override
                     public void onNext(PlantSensorSummary summary) {
-                        System.out.println("🌱 Summary Received:");
-                        System.out.println("  Total Readings: " + summary.getTotalReadings());
-                        System.out.printf("  Avg Moisture: %.2f%%\n", summary.getAverageMoisture());
-                        System.out.printf("  Avg Light: %.2f lumens\n", summary.getAverageLight());
+                        System.out.printf("🌱 Summary: %d readings, Avg Moisture: %.2f%%, Avg Light: %.2f lumens%n",
+                                summary.getTotalReadings(),
+                                summary.getAverageMoisture(),
+                                summary.getAverageLight());
                     }
 
                     @Override
                     public void onError(Throwable t) {
-                        System.err.println("❌ Error in client: " + t.getMessage());
-                        finishLatch.countDown();
+                        System.err.println("❌ Error: " + t.getMessage());
+                        latch.countDown();
                     }
 
                     @Override
                     public void onCompleted() {
-                        System.out.println("✅ Done sending all readings.");
-                        finishLatch.countDown();
+                        System.out.println("✅ Done sending plant readings.");
+                        latch.countDown();
                     }
                 });
 
-        // Send 5 simulated readings
-        for (int i = 1; i <= 5; i++) {
+        // 5. Simulate sending 3 readings
+        for (int i = 1; i <= 3; i++) {
             PlantSensorReading reading = PlantSensorReading.newBuilder()
-                    .setMoisture(30 + Math.random() * 20)  // simulate 30-50%
-                    .setLight(200 + Math.random() * 100)   // simulate 200-300 lumens
+                    .setMoisture(40 + Math.random() * 20)
+                    .setLight(300 + Math.random() * 200)
                     .build();
 
-            System.out.printf("📤 Sending reading %d: Moisture=%.2f%%, Light=%.2f lumens\n",
+            System.out.printf("📤 Reading %d: Moisture=%.2f%%, Light=%.2f lumens%n",
                     i, reading.getMoisture(), reading.getLight());
 
             requestObserver.onNext(reading);
-            Thread.sleep(200); // simulate time between readings
+            Thread.sleep(300);
         }
 
         requestObserver.onCompleted();
-
-        // Wait for response
-        finishLatch.await(5, TimeUnit.SECONDS);
-
+        latch.await(5, TimeUnit.SECONDS);
         channel.shutdown();
     }
 }

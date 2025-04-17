@@ -3,25 +3,37 @@ package com.mycompany.smarthome;
 import com.smarthome.environment.*;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import io.grpc.Metadata;
+import io.grpc.stub.MetadataUtils;
 import io.grpc.stub.StreamObserver;
 
 import java.time.LocalTime;
 import java.util.Iterator;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 
 public class SmartHome {
+
+    private static final String API_KEY = "my-secret-key";
+    private static final Metadata.Key<String> API_KEY_HEADER =
+            Metadata.Key.of("api_key", Metadata.ASCII_STRING_MARSHALLER);
+
     public static void main(String[] args) throws Exception {
+        Logger.getLogger(SmartHome.class.getName()).info("SmartHome client starting...");
 
-        // Channels for each service
-        ManagedChannel climateChannel = ManagedChannelBuilder.forAddress("localhost", 50051).usePlaintext().build();
-        ManagedChannel energyChannel = ManagedChannelBuilder.forAddress("localhost", 50052).usePlaintext().build();
-        ManagedChannel plantChannel = ManagedChannelBuilder.forAddress("localhost", 50053).usePlaintext().build();
-        ManagedChannel securityChannel = ManagedChannelBuilder.forAddress("localhost", 50054).usePlaintext().build();
+        // ----------- ClimateControlService (Unary) -----------
+        ManagedChannel climateChannel = ManagedChannelBuilder.forAddress("localhost", 50051)
+                .usePlaintext()
+                .build();
 
-        // 1. Unary RPC - ClimateControlService
+        Metadata climateHeaders = new Metadata();
+        climateHeaders.put(API_KEY_HEADER, API_KEY);
         ClimateControlServiceGrpc.ClimateControlServiceBlockingStub climateStub =
-                ClimateControlServiceGrpc.newBlockingStub(climateChannel);
+                MetadataUtils.attachHeaders(
+                        ClimateControlServiceGrpc.newBlockingStub(climateChannel),
+                        climateHeaders
+                );
 
         TemperatureRequest tempRequest = TemperatureRequest.newBuilder()
                 .setRoom("Living Room")
@@ -29,26 +41,47 @@ public class SmartHome {
                 .build();
 
         TemperatureResponse tempResponse = climateStub.setTemperature(tempRequest);
-        System.out.println("✅ ClimateControlService Response: " + tempResponse.getMessage());
+        System.out.println("ClimateControlService Response: " + tempResponse.getMessage());
 
-        // 2. Server Streaming RPC - EnergyRoutineService
-        EnergyRoutineServiceGrpc.EnergyRoutineServiceBlockingStub energyStub =
-                EnergyRoutineServiceGrpc.newBlockingStub(energyChannel);
+        climateChannel.shutdown();
 
-        EnergyUsageRequest energyRequest = EnergyUsageRequest.newBuilder()
-                .setDate("2025-04-13")
+        // ----------- EnergyRoutineService (Server Streaming) -----------
+        ManagedChannel energyChannel = ManagedChannelBuilder.forAddress("localhost", 50052)
+                .usePlaintext()
                 .build();
 
-        System.out.println("\n🔌 Streaming hourly energy usage:");
-        Iterator<EnergyUsageData> energyData = energyStub.streamHourlyEnergyUsage(energyRequest);
-        while (energyData.hasNext()) {
-            EnergyUsageData data = energyData.next();
-            System.out.printf("  - Hour %02d: %.2f kWh%n", data.getHour(), data.getUsageKwh());
-        }
+        Metadata energyHeaders = new Metadata();
+        energyHeaders.put(API_KEY_HEADER, API_KEY);
+        EnergyRoutineServiceGrpc.EnergyRoutineServiceBlockingStub energyStub =
+                MetadataUtils.attachHeaders(
+                        EnergyRoutineServiceGrpc.newBlockingStub(energyChannel),
+                        energyHeaders
+                );
 
-        // 3. Client Streaming RPC - PlantSensorService
+        EnergyUsageRequest energyRequest = EnergyUsageRequest.newBuilder()
+                .setDate("2025-04-16")
+                .build();
+
+        System.out.println("Streaming hourly energy usage:");
+        Iterator<EnergyUsageData> usageData = energyStub.streamHourlyEnergyUsage(energyRequest);
+        usageData.forEachRemaining(data ->
+                System.out.printf(" - Hour %02d: %.2f kWh%n", data.getHour(), data.getUsageKwh())
+        );
+
+        energyChannel.shutdown();
+
+        // ----------- PlantSensorService (Client Streaming) -----------
+        ManagedChannel plantChannel = ManagedChannelBuilder.forAddress("localhost", 50053)
+                .usePlaintext()
+                .build();
+
+        Metadata plantHeaders = new Metadata();
+        plantHeaders.put(API_KEY_HEADER, API_KEY);
         PlantSensorServiceGrpc.PlantSensorServiceStub plantStub =
-                PlantSensorServiceGrpc.newStub(plantChannel);
+                MetadataUtils.attachHeaders(
+                        PlantSensorServiceGrpc.newStub(plantChannel),
+                        plantHeaders
+                );
 
         CountDownLatch plantLatch = new CountDownLatch(1);
 
@@ -56,21 +89,21 @@ public class SmartHome {
                 new StreamObserver<PlantSensorSummary>() {
                     @Override
                     public void onNext(PlantSensorSummary summary) {
-                        System.out.printf("\n🌱 Plant Sensor Summary:\n - Readings: %d\n - Avg Moisture: %.2f%%\n - Avg Light: %.2f lumens%n",
-                                summary.getTotalReadings(),
-                                summary.getAverageMoisture(),
-                                summary.getAverageLight());
+                        System.out.println("Plant Sensor Summary:");
+                        System.out.println(" - Readings: " + summary.getTotalReadings());
+                        System.out.printf(" - Avg Moisture: %.2f%%\n", summary.getAverageMoisture());
+                        System.out.printf(" - Avg Light: %.2f lumens\n", summary.getAverageLight());
                     }
 
                     @Override
                     public void onError(Throwable t) {
-                        System.err.println("❌ Plant sensor error: " + t.getMessage());
+                        System.err.println("Plant sensor error: " + t.getMessage());
                         plantLatch.countDown();
                     }
 
                     @Override
                     public void onCompleted() {
-                        System.out.println("✅ Plant sensor data streaming complete.");
+                        System.out.println("Plant sensor data streaming complete.");
                         plantLatch.countDown();
                     }
                 });
@@ -81,36 +114,48 @@ public class SmartHome {
                     .setLight(300 + Math.random() * 200)
                     .build();
 
-            System.out.printf("🌿 Sending reading %d: Moisture=%.2f%%, Light=%.2f lumens%n", i + 1, reading.getMoisture(), reading.getLight());
+            System.out.printf("Sending plant reading %d: Moisture=%.2f%%, Light=%.2f lumens%n",
+                    i + 1, reading.getMoisture(), reading.getLight());
             plantRequestObserver.onNext(reading);
-            Thread.sleep(500);
+            Thread.sleep(400);
         }
 
         plantRequestObserver.onCompleted();
-        plantLatch.await(3, TimeUnit.SECONDS);
+        plantLatch.await(5, TimeUnit.SECONDS);
+        plantChannel.shutdown();
 
-        // 4. Bidirectional Streaming RPC - SecurityService
+        // ----------- SecurityService (Bidirectional Streaming) -----------
+        ManagedChannel securityChannel = ManagedChannelBuilder.forAddress("localhost", 51999)
+                .usePlaintext()
+                .build();
+
+        Metadata securityHeaders = new Metadata();
+        securityHeaders.put(API_KEY_HEADER, API_KEY);
         SecurityServiceGrpc.SecurityServiceStub securityStub =
-                SecurityServiceGrpc.newStub(securityChannel);
+                MetadataUtils.attachHeaders(
+                        SecurityServiceGrpc.newStub(securityChannel),
+                        securityHeaders
+                );
 
         CountDownLatch securityLatch = new CountDownLatch(1);
 
-        StreamObserver<DoorEvent> securityRequest = securityStub.monitorDoor(
-                new StreamObserver<DoorAlert>() {
+        StreamObserver<DoorEvent> securityRequestObserver =
+                securityStub.monitorDoor(new StreamObserver<DoorAlert>() {
                     @Override
                     public void onNext(DoorAlert alert) {
-                        System.out.println("🚨 ALERT from Server [" + alert.getDoorId() + "]: " + alert.getAlertMessage());
+                        System.out.printf("ALERT from Server [%s]: %s%n",
+                                alert.getDoorId(), alert.getAlertMessage());
                     }
 
                     @Override
                     public void onError(Throwable t) {
-                        System.err.println("❌ Security client error: " + t.getMessage());
+                        System.err.println("Security client error: " + t.getMessage());
                         securityLatch.countDown();
                     }
 
                     @Override
                     public void onCompleted() {
-                        System.out.println("✅ Security client done sending.");
+                        System.out.println("Security client done sending.");
                         securityLatch.countDown();
                     }
                 });
@@ -122,20 +167,15 @@ public class SmartHome {
                     .setTimestamp(LocalTime.now().toString())
                     .build();
 
-            System.out.printf("🚪 Sending door event %d: %s%n", i, event.getIsOpen() ? "OPEN" : "CLOSED");
-            securityRequest.onNext(event);
-            Thread.sleep(500);
+            System.out.printf("Sending door event %d: %s%n", i, event.getIsOpen() ? "OPEN" : "CLOSED");
+            securityRequestObserver.onNext(event);
+            Thread.sleep(400);
         }
 
-        securityRequest.onCompleted();
-        securityLatch.await(3, TimeUnit.SECONDS);
-
-        // Shutdown all channels
-        climateChannel.shutdown();
-        energyChannel.shutdown();
-        plantChannel.shutdown();
+        securityRequestObserver.onCompleted();
+        securityLatch.await(5, TimeUnit.SECONDS);
         securityChannel.shutdown();
 
-        System.out.println("\n🏁 SmartHome client session finished.");
+        System.out.println("SmartHome client session complete.");
     }
 }
