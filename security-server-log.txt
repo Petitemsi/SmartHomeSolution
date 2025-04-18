@@ -1,0 +1,44 @@
+Apr 17, 2025 12:09:45 PM com.mycompany.smarthome.SecurityServer main
+INFO: 🔐 SecurityServer starting on port 50054...
+Apr 17, 2025 12:09:45 PM com.mycompany.smarthome.SecurityServer main
+INFO: ✅ SecurityServer registered with JmDNS.
+Apr 17, 2025 1:26:41 PM com.mycompany.smarthome.SecurityServer main
+INFO: 🔐 SecurityServer starting on port 50054...
+Apr 17, 2025 1:26:41 PM com.mycompany.smarthome.SecurityServer main
+INFO: ✅ SecurityServer registered with JmDNS.
+Apr 17, 2025 2:35:58 PM com.mycompany.smarthome.SecurityServer main
+INFO: 🔐 SecurityServer starting on port 50054...
+Apr 17, 2025 2:35:58 PM com.mycompany.smarthome.SecurityServer main
+INFO: ✅ SecurityServer registered with JmDNS.
+Apr 17, 2025 10:58:21 PM com.mycompany.smarthome.SecurityServer$SecurityServiceImpl$1 onNext
+INFO: 📥 Received door event: FrontDoor is OPEN
+Apr 17, 2025 10:58:22 PM com.mycompany.smarthome.SecurityServer$SecurityServiceImpl$1 onNext
+INFO: 📥 Received door event: FrontDoor is CLOSED
+Apr 17, 2025 10:58:22 PM com.mycompany.smarthome.SecurityServer$SecurityServiceImpl$1 onNext
+INFO: 📥 Received door event: FrontDoor is OPEN
+Apr 17, 2025 10:58:23 PM com.mycompany.smarthome.SecurityServer$SecurityServiceImpl$1 onCompleted
+INFO: ✅ Completed door monitoring.
+Apr 18, 2025 8:33:30 AM com.mycompany.smarthome.SecurityServer main
+INFO: 🔐 SecurityServer starting on port 50054...
+Apr 18, 2025 8:33:31 AM com.mycompany.smarthome.SecurityServer main
+INFO: ✅ SecurityServer registered with JmDNS.
+Apr 18, 2025 8:33:43 AM com.mycompany.smarthome.SecurityServer main
+INFO: 🔐 SecurityServer starting on port 50054...
+Apr 18, 2025 8:33:43 AM com.mycompany.smarthome.SecurityServer main
+INFO: ✅ SecurityServer registered with JmDNS.
+Apr 18, 2025 11:39:36 AM com.mycompany.smarthome.SecurityServer main
+INFO: 🔐 SecurityServer starting on port 50054...
+Apr 18, 2025 11:39:36 AM com.mycompany.smarthome.SecurityServer main
+INFO: ✅ SecurityServer registered with JmDNS.
+Apr 18, 2025 11:41:56 AM com.mycompany.smarthome.SecurityServer$SecurityServiceImpl$1 onNext
+INFO: 📥 Received door event: FrontDoor is OPEN
+Apr 18, 2025 11:41:56 AM com.mycompany.smarthome.SecurityServer$SecurityServiceImpl$1 onNext
+INFO: 📥 Received door event: FrontDoor is CLOSED
+Apr 18, 2025 11:41:56 AM com.mycompany.smarthome.SecurityServer$SecurityServiceImpl$1 onNext
+INFO: 📥 Received door event: FrontDoor is OPEN
+Apr 18, 2025 11:41:57 AM com.mycompany.smarthome.SecurityServer$SecurityServiceImpl$1 onCompleted
+INFO: ✅ Completed door monitoring.
+Apr 18, 2025 11:44:43 AM com.mycompany.smarthome.SecurityServer main
+INFO: 🔐 SecurityServer starting on port 51999...
+Apr 18, 2025 11:44:43 AM com.mycompany.smarthome.SecurityServer main
+INFO: ✅ SecurityServer registered with JmDNS.

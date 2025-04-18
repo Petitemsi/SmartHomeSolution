@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package smarthome.environment;
+
+option java_package = "com.smarthome.environment";
+option java_outer_classname = "SecurityServiceProto";
+option java_multiple_files = true;
+
+message DoorEvent {
+  string door_id = 1;
+  bool is_open = 2;
+  string timestamp = 3;
+}
+
+message DoorAlert {
+  string door_id = 1;
+  string alert_message = 2;
+  string timestamp = 3;
+}
+
+service SecurityService {
+  // Bidirectional streaming RPC for door monitoring
+  rpc MonitorDoor (stream DoorEvent) returns (stream DoorAlert);
+}

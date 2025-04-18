@@ -1,0 +1,56 @@
+Apr 18, 2025 11:37:10 AM com.mycompany.smarthome.RunSmartHome startAllServers
+INFO: 🌡️ Climate Control Server started on port 50051
+Apr 18, 2025 11:37:10 AM com.mycompany.smarthome.RunSmartHome startAllServers
+INFO: ⚡ Energy Routine Server started on port 50052
+Apr 18, 2025 11:37:10 AM com.mycompany.smarthome.RunSmartHome startAllServers
+INFO: 🌿 Plant Sensor Server started on port 50053
+Apr 18, 2025 11:37:10 AM com.mycompany.smarthome.RunSmartHome startAllServers
+INFO: 🔒 Security Server started on port 51999
+Apr 18, 2025 11:37:10 AM com.mycompany.smarthome.RunSmartHome startAllServers
+INFO: ✅ All SmartHome servers are running!
+Apr 18, 2025 11:38:37 AM com.mycompany.smarthome.RunSmartHome lambda$startAllServers$0
+INFO: Shutting down all servers...
+Apr 18, 2025 11:42:03 AM com.mycompany.smarthome.RunSmartHome startAllServers
+SEVERE: ❌ Error starting servers: Failed to bind to address 0.0.0.0/0.0.0.0:50051
+Apr 18, 2025 11:42:03 AM com.mycompany.smarthome.RunSmartHome stopAllServers
+INFO: All servers stopped
+Apr 18, 2025 11:42:49 AM com.mycompany.smarthome.RunSmartHome startAllServers
+SEVERE: ❌ Error starting servers: Failed to bind to address 0.0.0.0/0.0.0.0:50051
+Apr 18, 2025 11:42:49 AM com.mycompany.smarthome.RunSmartHome stopAllServers
+INFO: All servers stopped
+Apr 18, 2025 11:44:12 AM com.mycompany.smarthome.RunSmartHome startServer
+SEVERE: ❌ Port 50051 is already in use for 🌡️ Climate Control Server
+Apr 18, 2025 11:44:12 AM com.mycompany.smarthome.RunSmartHome startAllServers
+SEVERE: ❌ Error starting servers: Port 50051 is not available
+Apr 18, 2025 11:44:12 AM com.mycompany.smarthome.RunSmartHome stopAllServers
+INFO: All servers stopped
+Apr 18, 2025 11:44:33 AM com.mycompany.smarthome.RunSmartHome startServer
+INFO: 🌡️ Climate Control Server started on port 50051
+Apr 18, 2025 11:44:33 AM com.mycompany.smarthome.RunSmartHome startServer
+INFO: ⚡ Energy Routine Server started on port 50052
+Apr 18, 2025 11:44:33 AM com.mycompany.smarthome.RunSmartHome startServer
+INFO: 🌿 Plant Sensor Server started on port 50053
+Apr 18, 2025 11:44:33 AM com.mycompany.smarthome.RunSmartHome startAllServers
+INFO: ✅ All SmartHome servers are running!
+Apr 18, 2025 11:44:39 AM com.mycompany.smarthome.RunSmartHome lambda$startAllServers$0
+INFO: Shutting down all servers...
+Apr 18, 2025 11:45:12 AM com.mycompany.smarthome.RunSmartHome startServer
+INFO: 🌡️ Climate Control Server started on port 50051
+Apr 18, 2025 11:45:12 AM com.mycompany.smarthome.RunSmartHome startServer
+INFO: ⚡ Energy Routine Server started on port 50052
+Apr 18, 2025 11:45:12 AM com.mycompany.smarthome.RunSmartHome startServer
+INFO: 🌿 Plant Sensor Server started on port 50053
+Apr 18, 2025 11:45:12 AM com.mycompany.smarthome.RunSmartHome startAllServers
+INFO: ✅ All SmartHome servers are running!
+Apr 18, 2025 11:45:24 AM com.mycompany.smarthome.RunSmartHome lambda$startAllServers$0
+INFO: Shutting down all servers...
+Apr 18, 2025 11:46:30 AM com.mycompany.smarthome.RunSmartHome startServer
+INFO: 🌡️ Climate Control Server started on port 50051
+Apr 18, 2025 11:46:30 AM com.mycompany.smarthome.RunSmartHome startServer
+INFO: ⚡ Energy Routine Server started on port 50052
+Apr 18, 2025 11:46:30 AM com.mycompany.smarthome.RunSmartHome startServer
+INFO: 🌿 Plant Sensor Server started on port 50053
+Apr 18, 2025 11:46:30 AM com.mycompany.smarthome.RunSmartHome startAllServers
+INFO: ✅ All SmartHome servers are running!
+Apr 18, 2025 11:47:09 AM com.mycompany.smarthome.RunSmartHome lambda$startAllServers$0
+INFO: Shutting down all servers...

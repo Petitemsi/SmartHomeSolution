@@ -1,0 +1,222 @@
+Apr 17, 2025 11:35:00 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌡️ ClimateControlServer starting on port 50051...
+Apr 17, 2025 11:35:00 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: ✅ ClimateControlServer registered with JmDNS.
+Apr 17, 2025 11:53:23 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌡️ ClimateControlServer starting on port 50051...
+Apr 17, 2025 11:53:23 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: ✅ ClimateControlServer started.
+Apr 17, 2025 11:53:23 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌍 ClimateControlService registered with JmDNS.
+Apr 17, 2025 12:08:42 PM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌡️ ClimateControlServer starting on port 50051...
+Apr 17, 2025 12:08:42 PM com.mycompany.smarthome.ClimateControlServer main
+INFO: ✅ ClimateControlServer started.
+Apr 17, 2025 12:08:42 PM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌍 ClimateControlService registered with JmDNS.
+Apr 17, 2025 1:21:54 PM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌡️ ClimateControlServer starting on port 50051...
+Apr 17, 2025 1:21:54 PM com.mycompany.smarthome.ClimateControlServer main
+INFO: ✅ ClimateControlServer started.
+Apr 17, 2025 1:21:54 PM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌍 ClimateControlService registered with JmDNS.
+Apr 17, 2025 1:22:28 PM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌡️ ClimateControlServer starting on port 50051...
+Apr 17, 2025 1:22:28 PM com.mycompany.smarthome.ClimateControlServer main
+INFO: ✅ ClimateControlServer started.
+Apr 17, 2025 1:22:28 PM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌍 ClimateControlService registered with JmDNS.
+Apr 17, 2025 1:27:39 PM com.mycompany.smarthome.ClimateControlServer$ClimateControlServiceImpl setTemperature
+INFO: 📥 Received temperature request: Room=Living Room, Temperature=22.5
+Apr 17, 2025 1:27:39 PM com.mycompany.smarthome.ClimateControlServer$ClimateControlServiceImpl setTemperature
+INFO: 📤 Sending response: ✅ Temperature set to 22.5°C in Living Room
+Apr 17, 2025 2:01:58 PM com.mycompany.smarthome.ClimateControlServer$ClimateControlServiceImpl setTemperature
+INFO: 📥 Received temperature request: Room=Living Room, Temperature=22.5
+Apr 17, 2025 2:01:58 PM com.mycompany.smarthome.ClimateControlServer$ClimateControlServiceImpl setTemperature
+INFO: 📤 Sending response: ✅ Temperature set to 22.5°C in Living Room
+Apr 17, 2025 2:09:17 PM com.mycompany.smarthome.ClimateControlServer$ClimateControlServiceImpl setTemperature
+INFO: 📥 Received temperature request: Room=Living Room, Temperature=22.5
+Apr 17, 2025 2:09:17 PM com.mycompany.smarthome.ClimateControlServer$ClimateControlServiceImpl setTemperature
+INFO: 📤 Sending response: ✅ Temperature set to 22.5°C in Living Room
+Apr 17, 2025 2:11:32 PM com.mycompany.smarthome.ClimateControlServer$ClimateControlServiceImpl setTemperature
+INFO: 📥 Received temperature request: Room=Living Room, Temperature=22.5
+Apr 17, 2025 2:11:32 PM com.mycompany.smarthome.ClimateControlServer$ClimateControlServiceImpl setTemperature
+INFO: 📤 Sending response: ✅ Temperature set to 22.5°C in Living Room
+Apr 17, 2025 2:13:14 PM com.mycompany.smarthome.ClimateControlServer$ClimateControlServiceImpl setTemperature
+INFO: 📥 Received temperature request: Room=Living Room, Temperature=22.5
+Apr 17, 2025 2:13:14 PM com.mycompany.smarthome.ClimateControlServer$ClimateControlServiceImpl setTemperature
+INFO: 📤 Sending response: ✅ Temperature set to 22.5°C in Living Room
+Apr 17, 2025 2:34:13 PM com.mycompany.smarthome.ClimateControlServer$ClimateControlServiceImpl setTemperature
+INFO: 📥 Received temperature request: Room=Living Room, Temperature=22.5
+Apr 17, 2025 2:34:13 PM com.mycompany.smarthome.ClimateControlServer$ClimateControlServiceImpl setTemperature
+INFO: 📤 Sending response: ✅ Temperature set to 22.5°C in Living Room
+Apr 17, 2025 2:53:21 PM com.mycompany.smarthome.ClimateControlServer$ClimateControlServiceImpl setTemperature
+INFO: 📥 Received temperature request: Room=Living Room, Temperature=22.5
+Apr 17, 2025 2:53:21 PM com.mycompany.smarthome.ClimateControlServer$ClimateControlServiceImpl setTemperature
+INFO: 📤 Sending response: ✅ Temperature set to 22.5°C in Living Room
+Apr 17, 2025 3:56:21 PM com.mycompany.smarthome.ClimateControlServer$ClimateControlServiceImpl setTemperature
+INFO: 📥 Received temperature request: Room=Living Room, Temperature=22.5
+Apr 17, 2025 3:56:21 PM com.mycompany.smarthome.ClimateControlServer$ClimateControlServiceImpl setTemperature
+INFO: 📤 Sending response: ✅ Temperature set to 22.5°C in Living Room
+Apr 17, 2025 10:58:33 PM com.mycompany.smarthome.ClimateControlServer$ClimateControlServiceImpl setTemperature
+INFO: 📥 Received temperature request: Room=Living Room, Temperature=22.5
+Apr 17, 2025 10:58:33 PM com.mycompany.smarthome.ClimateControlServer$ClimateControlServiceImpl setTemperature
+INFO: 📤 Sending response: ✅ Temperature set to 22.5°C in Living Room
+Apr 18, 2025 1:56:46 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌡️ ClimateControlServer starting on port 50051...
+Apr 18, 2025 1:56:46 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: ✅ ClimateControlServer started.
+Apr 18, 2025 1:56:46 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌍 ClimateControlService registered with JmDNS.
+Apr 18, 2025 2:07:07 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌡️ ClimateControlServer starting on port 50051...
+Apr 18, 2025 2:07:07 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: ✅ ClimateControlServer started.
+Apr 18, 2025 2:07:07 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌍 ClimateControlService registered with JmDNS.
+Apr 18, 2025 2:08:38 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌡️ ClimateControlServer starting on port 50051...
+Apr 18, 2025 2:08:38 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: ✅ ClimateControlServer started.
+Apr 18, 2025 2:08:38 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌍 ClimateControlService registered with JmDNS.
+Apr 18, 2025 2:09:10 AM com.mycompany.smarthome.ClimateControlServer$ClimateControlServiceImpl setTemperature
+INFO: 📥 Received temperature request: Room=Living Room, Temperature=22.5
+Apr 18, 2025 2:09:10 AM com.mycompany.smarthome.ClimateControlServer$ClimateControlServiceImpl setTemperature
+INFO: 📤 Sending response: ✅ Temperature set to 22.5°C in Living Room
+Apr 18, 2025 2:09:39 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌡️ ClimateControlServer starting on port 50051...
+Apr 18, 2025 2:09:39 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: ✅ ClimateControlServer started.
+Apr 18, 2025 2:09:39 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌍 ClimateControlService registered with JmDNS.
+Apr 18, 2025 2:16:34 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌡️ ClimateControlServer starting on port 50051...
+Apr 18, 2025 2:16:34 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: ✅ ClimateControlServer started.
+Apr 18, 2025 2:16:34 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌍 ClimateControlService registered with JmDNS.
+Apr 18, 2025 2:24:42 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌡️ ClimateControlServer starting on port 50051...
+Apr 18, 2025 2:24:42 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: ✅ ClimateControlServer started.
+Apr 18, 2025 2:24:42 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌍 ClimateControlService registered with JmDNS.
+Apr 18, 2025 2:29:10 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌡️ ClimateControlServer starting on port 50051...
+Apr 18, 2025 2:29:10 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: ✅ ClimateControlServer started.
+Apr 18, 2025 2:29:10 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌍 ClimateControlService registered with JmDNS.
+Apr 18, 2025 3:03:22 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌡️ ClimateControlServer starting on port 50051...
+Apr 18, 2025 3:03:22 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: ✅ ClimateControlServer started.
+Apr 18, 2025 3:03:22 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌍 ClimateControlService registered with JmDNS.
+Apr 18, 2025 3:04:37 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌡️ ClimateControlServer starting on port 50051...
+Apr 18, 2025 3:04:37 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: ✅ ClimateControlServer started.
+Apr 18, 2025 3:04:37 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌍 ClimateControlService registered with JmDNS.
+Apr 18, 2025 3:05:04 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌡️ ClimateControlServer starting on port 50051...
+Apr 18, 2025 3:05:04 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: ✅ ClimateControlServer started.
+Apr 18, 2025 3:05:04 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌍 ClimateControlService registered with JmDNS.
+Apr 18, 2025 3:10:02 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌡️ ClimateControlServer starting on port 50051...
+Apr 18, 2025 3:10:02 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: ✅ ClimateControlServer started.
+Apr 18, 2025 3:10:02 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌍 ClimateControlService registered with JmDNS.
+Apr 18, 2025 8:31:08 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌡️ ClimateControlServer starting on port 50051...
+Apr 18, 2025 8:31:08 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: ✅ ClimateControlServer started.
+Apr 18, 2025 8:31:08 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌍 ClimateControlService registered with JmDNS.
+Apr 18, 2025 10:19:31 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌡️ ClimateControlServer starting on port 50051...
+Apr 18, 2025 10:19:31 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: ✅ ClimateControlServer started.
+Apr 18, 2025 10:19:31 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌍 ClimateControlService registered with JmDNS.
+Apr 18, 2025 10:20:12 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌡️ ClimateControlServer starting on port 50051...
+Apr 18, 2025 10:20:12 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: ✅ ClimateControlServer started.
+Apr 18, 2025 10:20:12 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌍 ClimateControlService registered with JmDNS.
+Apr 18, 2025 10:29:15 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌡️ ClimateControlServer starting on port 50051...
+Apr 18, 2025 10:29:15 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: ✅ ClimateControlServer started.
+Apr 18, 2025 10:29:15 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌍 ClimateControlService registered with JmDNS.
+Apr 18, 2025 10:33:22 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌡️ ClimateControlServer starting on port 50051...
+Apr 18, 2025 10:33:22 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: ✅ ClimateControlServer started.
+Apr 18, 2025 10:33:30 AM com.mycompany.smarthome.ClimateControlServer main
+WARNING: ⚠️ Service registration verification failed. Retrying...
+Apr 18, 2025 10:34:26 AM com.mycompany.smarthome.ClimateControlServer lambda$main$0
+INFO: Shutting down server...
+Apr 18, 2025 10:34:41 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌡️ ClimateControlServer starting on port 50051...
+Apr 18, 2025 10:34:41 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: ✅ ClimateControlServer started.
+Apr 18, 2025 10:34:48 AM com.mycompany.smarthome.ClimateControlServer main
+WARNING: ⚠️ Service registration verification failed. Retrying...
+Apr 18, 2025 10:43:45 AM com.mycompany.smarthome.ClimateControlServer lambda$main$0
+INFO: Shutting down server...
+Apr 18, 2025 10:43:55 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌡️ ClimateControlServer starting on port 50051...
+Apr 18, 2025 10:43:55 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: ✅ ClimateControlServer started.
+Apr 18, 2025 10:44:02 AM com.mycompany.smarthome.ClimateControlServer main
+WARNING: ⚠️ Service registration verification failed. Retrying...
+Apr 18, 2025 10:49:47 AM com.mycompany.smarthome.ClimateControlServer lambda$main$0
+INFO: Shutting down server...
+Apr 18, 2025 10:50:47 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌡️ ClimateControlServer starting on port 50051...
+Apr 18, 2025 10:50:47 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: ✅ ClimateControlServer started.
+Apr 18, 2025 10:50:54 AM com.mycompany.smarthome.ClimateControlServer main
+WARNING: ⚠️ Service registration verification failed. Retrying...
+Apr 18, 2025 10:51:19 AM com.mycompany.smarthome.ClimateControlServer lambda$main$0
+INFO: Shutting down server...
+Apr 18, 2025 10:52:45 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌡️ ClimateControlServer starting on port 50051...
+Apr 18, 2025 10:52:45 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: ✅ ClimateControlServer started.
+Apr 18, 2025 10:52:52 AM com.mycompany.smarthome.ClimateControlServer main
+WARNING: ⚠️ Service registration verification failed. Retrying...
+Apr 18, 2025 11:09:29 AM com.mycompany.smarthome.ClimateControlServer lambda$main$0
+INFO: Shutting down server...
+Apr 18, 2025 11:09:34 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌡️ ClimateControlServer starting on port 50051...
+Apr 18, 2025 11:09:34 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: ✅ ClimateControlServer started successfully
+Apr 18, 2025 11:09:48 AM com.mycompany.smarthome.ClimateControlServer$ClimateControlServiceImpl setTemperature
+INFO: 📥 Received temperature request: Room=Living Room, Temperature=22.5
+Apr 18, 2025 11:09:48 AM com.mycompany.smarthome.ClimateControlServer$ClimateControlServiceImpl setTemperature
+INFO: 📤 Sending response: ✅ Temperature set to 22.5°C in Living Room
+Apr 18, 2025 11:11:05 AM com.mycompany.smarthome.ClimateControlServer$ClimateControlServiceImpl setTemperature
+INFO: 📥 Received temperature request: Room=Living Room, Temperature=22.5
+Apr 18, 2025 11:11:05 AM com.mycompany.smarthome.ClimateControlServer$ClimateControlServiceImpl setTemperature
+INFO: 📤 Sending response: ✅ Temperature set to 22.5°C in Living Room
+Apr 18, 2025 11:11:46 AM com.mycompany.smarthome.ClimateControlServer lambda$main$0
+INFO: Shutting down server...
+Apr 18, 2025 11:38:57 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: 🌡️ ClimateControlServer starting on port 50051...
+Apr 18, 2025 11:38:57 AM com.mycompany.smarthome.ClimateControlServer main
+INFO: ✅ ClimateControlServer started successfully
+Apr 18, 2025 11:39:02 AM com.mycompany.smarthome.ClimateControlServer$ClimateControlServiceImpl setTemperature
+INFO: 📥 Received temperature request: Room=Living Room, Temperature=22.5
+Apr 18, 2025 11:39:02 AM com.mycompany.smarthome.ClimateControlServer$ClimateControlServiceImpl setTemperature
+INFO: 📤 Sending response: ✅ Temperature set to 22.5°C in Living Room
+Apr 18, 2025 11:44:28 AM com.mycompany.smarthome.ClimateControlServer lambda$main$0
+INFO: Shutting down server...

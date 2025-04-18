@@ -1,0 +1,18 @@
+Apr 17, 2025 12:28:19 AM com.mycompany.smarthome.SmartHome main
+INFO: 🏠 SmartHome client starting...
+Apr 17, 2025 12:28:19 AM com.mycompany.smarthome.SmartHome main
+INFO: 🌡️ ClimateControlService: ✅ Temperature set to 22.5°C in Living Room
+Apr 17, 2025 12:28:19 AM com.mycompany.smarthome.SmartHome main
+INFO: 📊 EnergyRoutineService streaming started.
+Apr 17, 2025 12:30:00 AM com.mycompany.smarthome.SmartHome main
+INFO: 🏠 SmartHome client starting...
+Apr 17, 2025 12:30:00 AM com.mycompany.smarthome.SmartHome main
+INFO: 🌡️ ClimateControlService: ✅ Temperature set to 22.5°C in Living Room
+Apr 17, 2025 12:30:00 AM com.mycompany.smarthome.SmartHome main
+INFO: 📊 EnergyRoutineService streaming started.
+Apr 17, 2025 12:37:14 AM com.mycompany.smarthome.SmartHome main
+INFO: 🏠 SmartHome client starting...
+Apr 17, 2025 12:37:14 AM com.mycompany.smarthome.SmartHome main
+INFO: 🌡️ ClimateControlService: ✅ Temperature set to 22.5°C in Living Room
+Apr 17, 2025 12:37:14 AM com.mycompany.smarthome.SmartHome main
+INFO: 📊 EnergyRoutineService streaming started.

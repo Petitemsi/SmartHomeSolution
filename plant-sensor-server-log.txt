@@ -1,0 +1,119 @@
+Apr 17, 2025 12:09:39 PM com.mycompany.smarthome.PlantSensorServer main
+INFO: 🌱 PlantSensorServer starting on port 50053...
+Apr 17, 2025 12:09:39 PM com.mycompany.smarthome.PlantSensorServer main
+INFO: ✅ PlantSensorServer registered via JmDNS.
+Apr 17, 2025 1:26:57 PM com.mycompany.smarthome.PlantSensorServer main
+INFO: 🌱 PlantSensorServer starting on port 50053...
+Apr 17, 2025 1:26:57 PM com.mycompany.smarthome.PlantSensorServer main
+INFO: ✅ PlantSensorServer registered via JmDNS.
+Apr 17, 2025 1:27:42 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onNext
+INFO: 📥 Reading received: Moisture=56.45994157660634%, Light=392.5886126691438 lumens
+Apr 17, 2025 1:27:42 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onNext
+INFO: 📥 Reading received: Moisture=57.705624033985856%, Light=461.5128114465922 lumens
+Apr 17, 2025 1:27:43 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onNext
+INFO: 📥 Reading received: Moisture=51.2509118403429%, Light=471.6775551625806 lumens
+Apr 17, 2025 1:27:43 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onCompleted
+INFO: 📤 Sending summary: total_readings: 3
+average_moisture: 55.13882581697837
+average_light: 441.9263264261055
+
+Apr 17, 2025 2:02:00 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onNext
+INFO: 📥 Reading received: Moisture=46.02780493939696%, Light=336.98305499279087 lumens
+Apr 17, 2025 2:02:01 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onNext
+INFO: 📥 Reading received: Moisture=41.74459219749963%, Light=483.6386830878464 lumens
+Apr 17, 2025 2:02:01 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onNext
+INFO: 📥 Reading received: Moisture=56.09394129971304%, Light=392.69781562330485 lumens
+Apr 17, 2025 2:02:01 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onCompleted
+INFO: 📤 Sending summary: total_readings: 3
+average_moisture: 47.95544614553654
+average_light: 404.4398512346474
+
+Apr 17, 2025 2:09:20 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onNext
+INFO: 📥 Reading received: Moisture=52.82526981580703%, Light=430.1929470380159 lumens
+Apr 17, 2025 2:09:20 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onNext
+INFO: 📥 Reading received: Moisture=42.01193575792268%, Light=375.00027227234534 lumens
+Apr 17, 2025 2:09:21 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onNext
+INFO: 📥 Reading received: Moisture=42.85551090061094%, Light=483.6600417084875 lumens
+Apr 17, 2025 2:09:21 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onCompleted
+INFO: 📤 Sending summary: total_readings: 3
+average_moisture: 45.89757215811355
+average_light: 429.6177536729495
+
+Apr 17, 2025 2:11:35 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onNext
+INFO: 📥 Reading received: Moisture=45.27754624066532%, Light=311.72937479730143 lumens
+Apr 17, 2025 2:11:35 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onNext
+INFO: 📥 Reading received: Moisture=54.818558238935026%, Light=350.122963023145 lumens
+Apr 17, 2025 2:11:36 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onNext
+INFO: 📥 Reading received: Moisture=59.24733840543233%, Light=362.78490491084574 lumens
+Apr 17, 2025 2:11:36 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onCompleted
+INFO: 📤 Sending summary: total_readings: 3
+average_moisture: 53.114480961677565
+average_light: 341.5457475770974
+
+Apr 17, 2025 2:13:16 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onNext
+INFO: 📥 Reading received: Moisture=46.835591248376296%, Light=468.2900533175782 lumens
+Apr 17, 2025 2:13:17 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onNext
+INFO: 📥 Reading received: Moisture=49.80225764882134%, Light=418.6841442942614 lumens
+Apr 17, 2025 2:13:17 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onNext
+INFO: 📥 Reading received: Moisture=40.52499895495664%, Light=380.8791800137393 lumens
+Apr 17, 2025 2:13:18 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onCompleted
+INFO: 📤 Sending summary: total_readings: 3
+average_moisture: 45.72094928405142
+average_light: 422.61779254185967
+
+Apr 17, 2025 2:34:16 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onNext
+INFO: 📥 Reading received: Moisture=56.342181817787306%, Light=439.9652083075946 lumens
+Apr 17, 2025 2:34:16 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onNext
+INFO: 📥 Reading received: Moisture=41.553875579822595%, Light=344.76731264022686 lumens
+Apr 17, 2025 2:34:17 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onNext
+INFO: 📥 Reading received: Moisture=42.38813484501332%, Light=436.4133286692774 lumens
+Apr 17, 2025 2:34:17 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onCompleted
+INFO: 📤 Sending summary: total_readings: 3
+average_moisture: 46.76139741420774
+average_light: 407.048616539033
+
+Apr 17, 2025 2:53:24 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onNext
+INFO: 📥 Reading received: Moisture=44.85120798648898%, Light=360.5465792442 lumens
+Apr 17, 2025 2:53:24 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onNext
+INFO: 📥 Reading received: Moisture=44.48524686839997%, Light=352.8944962133656 lumens
+Apr 17, 2025 2:53:25 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onNext
+INFO: 📥 Reading received: Moisture=44.297063570136515%, Light=445.7239662938832 lumens
+Apr 17, 2025 2:53:25 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onCompleted
+INFO: 📤 Sending summary: total_readings: 3
+average_moisture: 44.54450614167516
+average_light: 386.3883472504829
+
+Apr 17, 2025 3:56:24 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onNext
+INFO: 📥 Reading received: Moisture=43.40266262618699%, Light=475.12155123707396 lumens
+Apr 17, 2025 3:56:24 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onNext
+INFO: 📥 Reading received: Moisture=45.97355899917877%, Light=317.9202754341919 lumens
+Apr 17, 2025 3:56:24 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onNext
+INFO: 📥 Reading received: Moisture=51.41973783785811%, Light=494.71681436672486 lumens
+Apr 17, 2025 3:56:25 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onCompleted
+INFO: 📤 Sending summary: total_readings: 3
+average_moisture: 46.93198648774129
+average_light: 429.25288034599697
+
+Apr 17, 2025 10:58:35 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onNext
+INFO: 📥 Reading received: Moisture=54.49795429859664%, Light=367.66140067789024 lumens
+Apr 17, 2025 10:58:36 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onNext
+INFO: 📥 Reading received: Moisture=59.7681763757205%, Light=477.05947475295335 lumens
+Apr 17, 2025 10:58:36 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onNext
+INFO: 📥 Reading received: Moisture=54.33602453758631%, Light=352.9559838337841 lumens
+Apr 17, 2025 10:58:36 PM com.mycompany.smarthome.PlantSensorServer$PlantSensorServiceImpl$1 onCompleted
+INFO: 📤 Sending summary: total_readings: 3
+average_moisture: 56.20071840396781
+average_light: 399.2256197548759
+
+Apr 18, 2025 8:34:17 AM com.mycompany.smarthome.PlantSensorServer main
+INFO: 🌱 PlantSensorServer starting on port 50053...
+Apr 18, 2025 8:34:18 AM com.mycompany.smarthome.PlantSensorServer main
+INFO: ✅ PlantSensorServer registered via JmDNS.
+Apr 18, 2025 10:19:36 AM com.mycompany.smarthome.PlantSensorServer main
+INFO: 🌱 PlantSensorServer starting on port 50053...
+Apr 18, 2025 10:19:36 AM com.mycompany.smarthome.PlantSensorServer main
+INFO: ✅ PlantSensorServer registered via JmDNS.
+Apr 18, 2025 11:39:25 AM com.mycompany.smarthome.PlantSensorServer main
+INFO: 🌱 PlantSensorServer starting on port 50053...
+Apr 18, 2025 11:39:25 AM com.mycompany.smarthome.PlantSensorServer main
+INFO: ✅ PlantSensorServer registered via JmDNS.

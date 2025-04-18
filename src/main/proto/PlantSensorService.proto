@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package smarthome.environment;
+
+option java_package = "com.smarthome.environment";
+option java_outer_classname = "PlantSensorServiceProto";
+option java_multiple_files = true;
+
+message PlantSensorReading {
+  double moisture = 1; // soil moisture level (e.g., percentage)
+  double light = 2;    // light exposure level (e.g., lumens)
+}
+
+message PlantSensorSummary {
+  int32 total_readings = 1;      // number of readings received
+  double average_moisture = 2;   // average moisture level
+  double average_light = 3;      // average light level
+}
+
+service PlantSensorService {
+  // Client streaming RPC to send multiple plant sensor readings
+  rpc SendSensorReadings (stream PlantSensorReading) returns (PlantSensorSummary);
+}
+
